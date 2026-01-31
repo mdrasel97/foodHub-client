@@ -1,8 +1,8 @@
 import { AppSidebar } from "@/components/layout/app-sidebar";
+import { ProfileDropdown } from "@/components/layout/ProfileDropdown";
 import {
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
@@ -15,7 +15,8 @@ import {
 } from "@/components/ui/sidebar";
 import { ROLES } from "@/constants/Roles";
 import { userService } from "@/services/user.service";
-
+import Link from "next/link";
+export const dynamic = "force-dynamic";
 export default async function DashboardLayout({
   admin,
   customer,
@@ -28,7 +29,7 @@ export default async function DashboardLayout({
   const { data } = await userService.getSession();
   return (
     <SidebarProvider>
-      <AppSidebar user={data.user.role} />
+      <AppSidebar user={data?.user?.role} />
       <SidebarInset>
         <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
           <SidebarTrigger className="-ml-1" />
@@ -38,22 +39,29 @@ export default async function DashboardLayout({
           />
           <Breadcrumb>
             <BreadcrumbList>
-              <BreadcrumbItem className="hidden md:block">
-                <BreadcrumbLink href="#">
-                  Building Your Application
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator className="hidden md:block" />
               <BreadcrumbItem>
-                <BreadcrumbPage>Data Fetching</BreadcrumbPage>
+                <Link href="/">Website</Link>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>
+                  {data?.user?.role === ROLES.ADMIN
+                    ? "Admin Dashboard"
+                    : data?.user?.role === ROLES.CUSTOMER
+                      ? "Dashboard"
+                      : "Provider Dashboard"}
+                </BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
+          <div className="ml-auto">
+            <ProfileDropdown user={data?.user} />
+          </div>
         </header>
         <div className="flex flex-1 flex-col gap-4 p-4">
-          {data.user.role === ROLES.ADMIN
+          {data?.user?.role === ROLES.ADMIN
             ? admin
-            : data.user.role === ROLES.CUSTOMER
+            : data?.user?.role === ROLES.CUSTOMER
               ? customer
               : provider}
         </div>

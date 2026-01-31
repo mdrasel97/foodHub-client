@@ -15,6 +15,7 @@ import { cn } from "@/lib/utils";
 import { useForm } from "@tanstack/react-form";
 import { Eye, EyeOff } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import * as React from "react";
 import { toast } from "sonner";
 import * as z from "zod";
@@ -29,6 +30,7 @@ export function LoginForm({
   ...props
 }: React.ComponentProps<"div">) {
   const [showPassword, setShowPassword] = React.useState(false);
+  const router = useRouter();
 
   const form = useForm({
     defaultValues: {
@@ -39,8 +41,7 @@ export function LoginForm({
     onSubmit: async ({ value }) => {
       const toastId = toast.loading("Logging in...");
       try {
-        console.log(value);
-        const { error } = await authClient.signIn.email(value);
+        const { error, data } = await authClient.signIn.email(value);
         if (error) {
           toast.error(error.message, { id: toastId });
           return;
@@ -48,6 +49,8 @@ export function LoginForm({
         toast.success("Logged in successfully!", {
           id: toastId,
         });
+        console.log("user", data);
+        router.push("/");
       } catch (error) {
         toast.error("An unexpected error occurred. Please try again.", {
           id: toastId,

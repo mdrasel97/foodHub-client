@@ -9,9 +9,8 @@ const roleDashboardMap: Record<string, string> = {
   [ROLES.CUSTOMER]: "/dashboard",
   [ROLES.PROVIDER]: "/provider-dashboard",
 };
-export default async function proxy(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
-
   const { data } = await userService.getSession();
   const user = data?.user;
   const isAuthenticated = !!user;
@@ -24,7 +23,7 @@ export default async function proxy(request: NextRequest) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
-  const userRole = user.role;
+  const userRole = user?.role;
   const allowedDashboard = roleDashboardMap[userRole];
 
   if (publicRoutes.includes(pathname)) {
