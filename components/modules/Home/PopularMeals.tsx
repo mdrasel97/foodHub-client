@@ -112,7 +112,7 @@ export function PopularMeals({ meals }: PopularMealsProps) {
               <CardContent className="flex-1 p-5 space-y-3">
                 {/* Title */}
                 <Link href={`/meals/${meal.id}`}>
-                  <h3 className="font-bold text-xl group-hover:text-red-600 transition-colors line-clamp-1">
+                  <h3 className="font-bold text-xl group-hover:text-primary transition-colors line-clamp-1">
                     {meal.name}
                   </h3>
                 </Link>
@@ -180,7 +180,7 @@ export function PopularMeals({ meals }: PopularMealsProps) {
                     size="sm"
                     onClick={() => handleAddToCart(meal.id)}
                     disabled={!meal.isAvailable || addingToCart === meal.id}
-                    className="gap-2 hover:bg-red-600 hover:border-red-600 transition-colors cursor-pointer hover:text-white"
+                    className="gap-2 hover:bg-primary hover:border-primary transition-colors cursor-pointer hover:text-white"
                   >
                     <ShoppingCart className="w-4 h-4" />
                     {addingToCart === meal.id ? "Adding..." : "Add"}
@@ -193,7 +193,7 @@ export function PopularMeals({ meals }: PopularMealsProps) {
 
         {/* View All Button */}
         <div className="mt-12 mb-12 text-center">
-          <Button size="lg" variant="destructive" asChild className="gap-2">
+          <Button size="lg" asChild className="gap-2">
             <Link href="/meals">
               View All Meals
               <span className="ml-2">→</span>

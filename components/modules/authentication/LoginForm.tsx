@@ -15,6 +15,7 @@ import { cn } from "@/lib/utils";
 import { useForm } from "@tanstack/react-form";
 import { Eye, EyeOff } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import * as React from "react";
 import { toast } from "sonner";
@@ -183,7 +184,7 @@ export function LoginForm({
                 </Button>
               </Field>
               <FieldDescription className="text-center">
-                Already have an account? <a href="#">Sign Up</a>
+                Already have an account? <Link href="/register">Sign Up</Link>
               </FieldDescription>
             </FieldGroup>
           </form>
