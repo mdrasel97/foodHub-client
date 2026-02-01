@@ -14,6 +14,7 @@ export interface CartItem {
   quantity: number;
   // name?: string;
   // price?: number;
+  pricePerUnit?: number;
 }
 
 interface CartContextType {

@@ -16,6 +16,7 @@ import {
 import { authClient } from "@/lib/auth-client";
 import { ModeToggle } from "./ModeToggle";
 import { ProfileDropdown } from "./ProfileDropdown";
+import ShoppingCartItem from "../ShoppingCart";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -186,7 +187,7 @@ export default function Navbar() {
                 </SheetTrigger>
               </div>
 
-              <SheetContent side="right" className="w-64">
+              <SheetContent side="right" className="w-[380px] sm:w-[420px]">
                 <SheetHeader className="hidden">
                   <SheetTitle></SheetTitle>
                   <SheetDescription></SheetDescription>
@@ -194,7 +195,7 @@ export default function Navbar() {
                 <div className="flex flex-col gap-6 mt-6 px-4">
                   {/* Mobile Nav */}
                  
-
+                    <ShoppingCartItem />
                 
                 </div>
               </SheetContent>
