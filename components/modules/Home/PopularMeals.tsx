@@ -3,6 +3,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { useCart } from "@/context/CartContext";
 import { Flame, Leaf, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -32,18 +33,39 @@ interface PopularMealsProps {
 export function PopularMeals({ meals }: PopularMealsProps) {
   const [addingToCart, setAddingToCart] = useState<string | null>(null);
   const router = useRouter();
+  const { cartItems, updateCart } = useCart();
 
-  const handleAddToCart = async (mealId: string) => {
-    setAddingToCart(mealId);
+ const handleAddToCart = (mealId: string) => {
+  console.log('check')
+  // আগে চেক করি এই meal আগেই cart এ আছে কিনা
+  const existingItem = cartItems.find(
+    (item) => item.id === mealId
+  );
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 500));
+  let updatedCart;
 
-    // TODO: Implement actual cart logic
-    console.log("Added to cart:", mealId);
+  if (existingItem) {
+    // থাকলে quantity +1
+    updatedCart = cartItems.map((item) =>
+      item.id === mealId
+        ? { ...item, quantity: item.quantity + 1 }
+        : item
+    );
+  } else {
+    // না থাকলে নতুন item add
+    updatedCart = [
+      ...cartItems,
+      { id: mealId, quantity: 1 },
+    ];
+  }
 
-    setAddingToCart(null);
-  };
+  updateCart(updatedCart);
+};
+
+
+// const handleAddToCart = (mealId: string) => {
+//   console.log('call id', mealId)
+// }
 
   const getSpiceLevelColor = (level?: string) => {
     switch (level?.toLowerCase()) {

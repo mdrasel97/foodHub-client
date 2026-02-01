@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUp, Loader2, Menu } from "lucide-react";
+import { ArrowUp, Loader2, Menu, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -28,6 +28,7 @@ export default function Navbar() {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const { data: session, isPending } = authClient.useSession();
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -79,6 +80,9 @@ export default function Navbar() {
 
           {/* Right - Auth Buttons (Desktop) */}
           <div className="hidden md:flex items-center gap-4">
+           <Button variant="outline" onClick={() => setIsCartOpen(!isCartOpen)}>
+            <ShoppingCart />
+           </Button>
             <ModeToggle />
             {isPending ? (
               <Loader2 className="h-5 w-5 animate-spin text-muted-foreground" />
@@ -165,6 +169,33 @@ export default function Navbar() {
                       </>
                     )}
                   </div>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
+
+          {/* cart menu  */}
+           <div className="md:hidden">
+            <Sheet open={isCartOpen} onOpenChange={setIsCartOpen}>
+              <div className="flex items-center gap-2">
+                <ModeToggle />
+                <SheetTrigger asChild>
+                  <Button variant="secondary" size="icon">
+                    <Menu className="h-6 w-6" />
+                  </Button>
+                </SheetTrigger>
+              </div>
+
+              <SheetContent side="right" className="w-64">
+                <SheetHeader className="hidden">
+                  <SheetTitle></SheetTitle>
+                  <SheetDescription></SheetDescription>
+                </SheetHeader>
+                <div className="flex flex-col gap-6 mt-6 px-4">
+                  {/* Mobile Nav */}
+                 
+
+                
                 </div>
               </SheetContent>
             </Sheet>
