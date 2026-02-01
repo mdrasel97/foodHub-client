@@ -55,7 +55,10 @@ export function PopularMeals({ meals }: PopularMealsProps) {
     // না থাকলে নতুন item add
     updatedCart = [
       ...cartItems,
-      { id: mealId, quantity: 1 },
+      {
+        ...meals.find((meal) => meal.id === mealId)!,
+        quantity: 1,
+      },
     ];
   }
 

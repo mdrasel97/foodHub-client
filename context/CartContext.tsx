@@ -11,6 +11,19 @@ import React, {
 
 export interface CartItem {
   id: string;
+  name: string;
+  price: number;
+  image?: string;
+  calories: number;
+  cuisine?: string;
+  dietary?: string[];
+  spiceLevel?: string;
+  isAvailable: boolean;
+  mealType?: string;
+  category?:{
+    name: string;
+  };
+  provider?: {};
   quantity: number;
   // name?: string;
   // price?: number;

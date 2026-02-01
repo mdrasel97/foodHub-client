@@ -5,13 +5,24 @@ import { Button } from "@/components/ui/button";
 import { toast, Toaster } from "sonner";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
+import { router } from "better-auth/api";
+import { useRouter } from "next/navigation";
 
 
 interface CartItem {
   id: string;
+  name: string;
+  price: number;
+  image?: string;
+  calories: number;
+  cuisine?: string;
+  dietary?: string[];
+  spiceLevel?: string;
+  isAvailable: boolean;
+  mealType?: string;
+  category?:{};
+  provider?: {};
   quantity: number;
-//   itemName?: string;
-//   itemDescription?: string;
   pricePerUnit?: number;
 }
 
@@ -21,6 +32,7 @@ interface CartItem {
 
 const ShoppingCartItem = () => {
   const { cartItems, updateCart } = useCart();
+  const router = useRouter()
 //   const { user } = useAuth();
 //   const axiosSecure = useAxiosSecure();
 
@@ -69,7 +81,7 @@ const ShoppingCartItem = () => {
 
   const subtotal = cartItems.reduce(
     (sum: number, item: CartItem) =>
-      sum + (item.pricePerUnit ?? 0) * item.quantity,
+      sum + item.price * item.quantity,
     0
   );
 
@@ -83,21 +95,22 @@ const ShoppingCartItem = () => {
 
   const handleCheckout = async () => {
     try {
-      const orderData = {
-        // userEmail: user?.email,
-        cartItems,
-        total,
-        createdAt: new Date(),
-      };
+    //   const orderData = {
+    //     // userEmail: user?.email,
+    //     cartItems,
+    //     total,
+    //     createdAt: new Date(),
+    //   };
 
     //   const response = await axiosSecure.post(
     //     "/cartCheckOut",
     //     orderData
     //   );
 
-      if (true) { // Simulating successful checkout
+      if (cartItems.length > 0) {
         toast.success("🛒 Order placed successfully!");
-        updateCart([]);
+        router.push("/checkout");
+        // updateCart([]);
       } else {
         toast.error("❌ Failed to place order");
       }
@@ -125,7 +138,7 @@ const ShoppingCartItem = () => {
             >
               <div className="flex justify-between">
                 <h2 className="font-semibold text-sm">
-                  {/* item name */}
+                    {item.name}
                 </h2>
                 <Button
                   size="icon"
@@ -165,7 +178,7 @@ const ShoppingCartItem = () => {
                 </div>
 
                 <span className="font-bold text-sm">
-                  ৳ {/* price * qty */}
+                  ৳ {(item.price * item.quantity).toFixed(2)}
                 </span>
               </div>
             </div>
@@ -184,9 +197,11 @@ const ShoppingCartItem = () => {
             <span>৳ {total}</span>
           </div>
 
-          <Button
-            onClick={handleCheckout}
-            className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white"
+       
+            
+            <Button
+            onClick={()=>handleCheckout()}
+            className="w-full bg-primary text-white"
           >
             Checkout
           </Button>
@@ -199,7 +214,7 @@ const ShoppingCartItem = () => {
             Clear Cart
           </Button>
         </div>
-      )}
+       )} 
 
       </div>
 

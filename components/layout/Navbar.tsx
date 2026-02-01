@@ -17,6 +17,8 @@ import { authClient } from "@/lib/auth-client";
 import { ModeToggle } from "./ModeToggle";
 import { ProfileDropdown } from "./ProfileDropdown";
 import ShoppingCartItem from "../ShoppingCart";
+import { Badge } from "../ui/badge";
+import { useCart } from "@/context/CartContext";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -30,6 +32,7 @@ export default function Navbar() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const { data: session, isPending } = authClient.useSession();
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const { totalItems } = useCart();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -83,6 +86,11 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-4">
            <Button variant="outline" onClick={() => setIsCartOpen(!isCartOpen)}>
             <ShoppingCart />
+            {totalItems > 0 && (
+                  <Badge className="absolute -top-2 -right-2 bg-red-500 text-white min-w-[20px] h-5 rounded-full text-xs flex items-center justify-center">
+                    {totalItems}
+                  </Badge>
+                )}
            </Button>
             <ModeToggle />
             {isPending ? (
