@@ -26,10 +26,10 @@ export const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2 text-center sm:text-left">
             <div className="flex items-center gap-2 mb-4 justify-center sm:justify-start">
-              <div className="w-10 h-10 rounded-xl bg-red-600 flex items-center justify-center">
-                <span className="text-white font-bold text-xl">F</span>
+              <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
+                <span className="text-white font-bold text-xl">K</span>
               </div>
-              <span className="text-xl font-bold text-foreground">FoodHub</span>
+              <span className="text-xl font-bold text-foreground">Khaddo Roshik</span>
             </div>
             <p className="text-muted-foreground max-w-sm mb-6 mx-auto sm:mx-0">
               Your favorite food from the best local restaurants, delivered fast
@@ -102,7 +102,7 @@ export const Footer = () => {
         {/* Bottom */}
         <div className="border-t border-border mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} FoodHub. All rights reserved.
+            © {new Date().getFullYear()} khaddoroshik. All rights reserved.
           </p>
           <p className="text-sm text-muted-foreground">
             Made with ❤️ for food lovers everywhere
