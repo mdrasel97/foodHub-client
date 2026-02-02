@@ -15,7 +15,6 @@ import { cn } from "@/lib/utils";
 import { useForm } from "@tanstack/react-form";
 import { Eye, EyeOff } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import * as React from "react";
 import { toast } from "sonner";
@@ -50,7 +49,6 @@ export function LoginForm({
         toast.success("Logged in successfully!", {
           id: toastId,
         });
-        console.log("user", data);
         router.push("/");
       } catch (error) {
         toast.error("An unexpected error occurred. Please try again.", {
@@ -184,7 +182,7 @@ export function LoginForm({
                 </Button>
               </Field>
               <FieldDescription className="text-center">
-                Already have an account? <Link href="/register">Sign Up</Link>
+                Already have an account? <a href="#">Sign Up</a>
               </FieldDescription>
             </FieldGroup>
           </form>

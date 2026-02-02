@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 import "./globals.css";
-import { CartProvider } from "@/context/CartContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,8 +37,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NextTopLoader color="#3742fa" height={2} />
-          <CartProvider>{children}</CartProvider>
+          <NextTopLoader color="red" height={2} />
+          {children}
           <Toaster position="top-right" richColors />
         </ThemeProvider>
       </body>

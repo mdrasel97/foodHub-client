@@ -3,7 +3,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { useCart } from "@/context/CartContext";
 import { Flame, Leaf, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -33,42 +32,18 @@ interface PopularMealsProps {
 export function PopularMeals({ meals }: PopularMealsProps) {
   const [addingToCart, setAddingToCart] = useState<string | null>(null);
   const router = useRouter();
-  const { cartItems, updateCart } = useCart();
 
- const handleAddToCart = (mealId: string) => {
-  console.log('check')
-  // আগে চেক করি এই meal আগেই cart এ আছে কিনা
-  const existingItem = cartItems.find(
-    (item) => item.id === mealId
-  );
+  const handleAddToCart = async (mealId: string) => {
+    setAddingToCart(mealId);
 
-  let updatedCart;
+    // Simulate API call
+    await new Promise((resolve) => setTimeout(resolve, 500));
 
-  if (existingItem) {
-    // থাকলে quantity +1
-    updatedCart = cartItems.map((item) =>
-      item.id === mealId
-        ? { ...item, quantity: item.quantity + 1 }
-        : item
-    );
-  } else {
-    // না থাকলে নতুন item add
-    updatedCart = [
-      ...cartItems,
-      {
-        ...meals.find((meal) => meal.id === mealId)!,
-        quantity: 1,
-      },
-    ];
-  }
+    // TODO: Implement actual cart logic
+    console.log("Added to cart:", mealId);
 
-  updateCart(updatedCart);
-};
-
-
-// const handleAddToCart = (mealId: string) => {
-//   console.log('call id', mealId)
-// }
+    setAddingToCart(null);
+  };
 
   const getSpiceLevelColor = (level?: string) => {
     switch (level?.toLowerCase()) {
@@ -137,7 +112,7 @@ export function PopularMeals({ meals }: PopularMealsProps) {
               <CardContent className="flex-1 p-5 space-y-3">
                 {/* Title */}
                 <Link href={`/meals/${meal.id}`}>
-                  <h3 className="font-bold text-xl group-hover:text-primary transition-colors line-clamp-1">
+                  <h3 className="font-bold text-xl group-hover:text-red-600 transition-colors line-clamp-1">
                     {meal.name}
                   </h3>
                 </Link>
@@ -205,7 +180,7 @@ export function PopularMeals({ meals }: PopularMealsProps) {
                     size="sm"
                     onClick={() => handleAddToCart(meal.id)}
                     disabled={!meal.isAvailable || addingToCart === meal.id}
-                    className="gap-2 hover:bg-primary hover:border-primary transition-colors cursor-pointer hover:text-white"
+                    className="gap-2 hover:bg-red-600 hover:border-red-600 transition-colors cursor-pointer hover:text-white"
                   >
                     <ShoppingCart className="w-4 h-4" />
                     {addingToCart === meal.id ? "Adding..." : "Add"}
@@ -218,7 +193,7 @@ export function PopularMeals({ meals }: PopularMealsProps) {
 
         {/* View All Button */}
         <div className="mt-12 mb-12 text-center">
-          <Button size="lg" asChild className="gap-2">
+          <Button size="lg" variant="destructive" asChild className="gap-2">
             <Link href="/meals">
               View All Meals
               <span className="ml-2">→</span>

@@ -32,7 +32,7 @@ export const OrderTracking = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Content */}
           <div>
-            <span className="text-primary font-semibold text-sm uppercase tracking-wider">
+            <span className="text-red-600 font-semibold text-sm uppercase tracking-wider">
               Real-Time Tracking
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mt-3 mb-6">
@@ -48,10 +48,10 @@ export const OrderTracking = () => {
             <div className="grid sm:grid-cols-3 gap-6">
               {features.map((feature) => (
                 <div key={feature.title} className="flex flex-col gap-2">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <feature.icon className="w-6 h-6 text-primary" />
+                  <div className="w-12 h-12 rounded-xl bg-red-600/10 flex items-center justify-center">
+                    <feature.icon className="w-6 h-6 text-red-600" />
                   </div>
-                  <h3 className="font-semibold text-primary">
+                  <h3 className="font-semibold text-red-600-foreground">
                     {feature.title}
                   </h3>
                   <p className="text-sm text-muted-foreground">
@@ -84,7 +84,7 @@ export const OrderTracking = () => {
                       <div
                         className={`w-8 h-8 rounded-full flex items-center justify-center ${
                           step.completed
-                            ? "bg-primary text-white"
+                            ? "bg-red-600 text-red-600-foreground"
                             : "bg-muted-foreground/30 text-muted-foreground"
                         }`}
                       >
@@ -97,7 +97,7 @@ export const OrderTracking = () => {
                       {index < trackingSteps.length - 1 && (
                         <div
                           className={`w-0.5 h-12 ${
-                            step.completed ? "bg-primary" : "bg-border"
+                            step.completed ? "bg-red-600" : "bg-border"
                           }`}
                         />
                       )}
@@ -127,7 +127,7 @@ export const OrderTracking = () => {
               rounded-2xl flex items-center justify-center mt-4"
               >
                 <div className="text-center">
-                  <MapPin className="w-8 h-8 text-primary mx-auto mb-2" />
+                  <MapPin className="w-8 h-8 text-red-600 mx-auto mb-2" />
                   <p className="text-sm text-muted-foreground">Live map view</p>
                 </div>
               </div>

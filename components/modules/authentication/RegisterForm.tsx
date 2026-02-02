@@ -15,7 +15,6 @@ import { defaultValues, RegisterFormSchema } from "@/schema/registerSchema";
 import { useForm } from "@tanstack/react-form";
 import { Eye, EyeOff } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import * as React from "react";
 import { toast } from "sonner";
 
@@ -184,7 +183,7 @@ export function RegisterForm({
                 </Button>
               </Field>
               <FieldDescription className="text-center">
-                Already have an account? <Link href="/login">Sign in</Link>
+                Already have an account? <a href="#">Sign in</a>
               </FieldDescription>
             </FieldGroup>
           </form>
