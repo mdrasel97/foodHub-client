@@ -5,11 +5,14 @@ import HeroSection from "@/components/modules/Home/Hero";
 import { HowItWorks } from "@/components/modules/Home/HowItWorks";
 import { OrderTracking } from "@/components/modules/Home/OrderTracking";
 import { PopularMeals } from "@/components/modules/Home/PopularMeals";
+import WhyChooseUs from "@/components/modules/Home/WhyChooseUs";
 import {
   CategorySliderSkeleton,
   PopularMealsSkeleton,
 } from "@/helper/skelitonLoader";
 import { Suspense } from "react";
+export const dynamic = "auto";
+export const revalidate = 0;
 
 async function getHomeData() {
   try {
@@ -35,8 +38,6 @@ async function getHomeData() {
 export default async function Home() {
   const { categories, meals, error } = await getHomeData();
 
-  console.log(meals);
-
   return (
     <>
       <HeroSection />
@@ -47,6 +48,7 @@ export default async function Home() {
         <PopularMeals meals={meals?.data} />
       </Suspense>
       <HowItWorks />
+      <WhyChooseUs />
       <OrderTracking />
     </>
   );

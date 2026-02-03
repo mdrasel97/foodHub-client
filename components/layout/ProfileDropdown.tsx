@@ -42,7 +42,7 @@ export function ProfileDropdown({ user }: { user: any }) {
   return (
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
-        <Avatar className="cursor-pointer border-2 border-red-600 transition hover:border-red-600">
+        <Avatar className="cursor-pointer border-2 border-primary transition hover:border-primary/80">
           <AvatarImage
             src={user?.image || "https://github.com/shadcn.png"}
             alt={user?.name || "User"}

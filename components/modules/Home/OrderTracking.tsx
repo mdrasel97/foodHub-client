@@ -51,7 +51,7 @@ export const OrderTracking = () => {
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                     <feature.icon className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="font-semibold text-primary-foreground">
+                  <h3 className="font-semibold text-primary">
                     {feature.title}
                   </h3>
                   <p className="text-sm text-muted-foreground">
@@ -106,7 +106,7 @@ export const OrderTracking = () => {
                       <p
                         className={`font-medium ${
                           step.completed
-                            ? "text-primary-foreground"
+                            ? "text-red-600-foreground"
                             : "text-muted-foreground"
                         }`}
                       >
@@ -123,7 +123,7 @@ export const OrderTracking = () => {
               {/* Map placeholder */}
               <div
                 className="h-32 
-              bg-linear-to-radial from-primary/10 to-transparent border border-border
+              bg-linear-to-radial from-red-600/10 to-transparent border border-border
               rounded-2xl flex items-center justify-center mt-4"
               >
                 <div className="text-center">

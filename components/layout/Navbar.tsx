@@ -194,7 +194,7 @@ export default function Navbar() {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 p-2 bg-primary  hover:bg-primary/90 text-white rounded-full shadow-lg transition-all duration-300 hover:scale-110 cursor-pointer"
+          className="fixed bottom-8 right-8 z-50 p-2 bg-primary hover:bg-primary/80 text-white rounded-full shadow-lg transition-all duration-300 hover:scale-110 cursor-pointer"
           aria-label="Scroll to top"
         >
           <ArrowUp className="h-5 w-5" />

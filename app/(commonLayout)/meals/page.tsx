@@ -31,6 +31,7 @@ async function getMeals(searchParams: SearchParamsType) {
     });
 
     if (response.status && response.data) {
+      console.log("Pagination data:", response.data.data.pagination);
       return {
         meals: response.data.data.data || [],
         pagination: response.data.data.pagination || {

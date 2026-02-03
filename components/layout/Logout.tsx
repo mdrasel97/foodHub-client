@@ -20,7 +20,7 @@ export default function Logout() {
   };
   return (
     <Button
-      variant="destructive"
+      // variant="destructive"
       className="cursor-pointer w-full justify-start"
       onClick={handleLogout}
     >

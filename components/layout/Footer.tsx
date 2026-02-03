@@ -102,7 +102,7 @@ export const Footer = () => {
         {/* Bottom */}
         <div className="border-t border-border mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} khaddoroshik. All rights reserved.
+            © {new Date().getFullYear()} Khaddo Roshik. All rights reserved.
           </p>
           <p className="text-sm text-muted-foreground">
             Made with ❤️ for food lovers everywhere

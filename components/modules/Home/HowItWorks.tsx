@@ -52,7 +52,7 @@ export const HowItWorks = () => {
               </span>
 
               {/* Icon */}
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+              <div className="w-16 h-16 rounded-2xl bg-red-600/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
                 <step.icon className="w-8 h-8 text-primary group-hover:text-white transition-colors" />
               </div>
 
