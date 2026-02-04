@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "FoodHub - Your Favorite Food, Delivered Fast",
+  title: "Khaddo Roshik - Your Favorite Food, Delivered Fast",
   description:
     "Discover amazing food from multiple providers in one place. Order from local restaurants and get it delivered to your door in minutes.",
 };

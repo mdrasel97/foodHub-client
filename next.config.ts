@@ -19,6 +19,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "www.bovat.me.uk",
       },
+      {
+        protocol: "https",
+        hostname: "www.kunekutepabu.us",
+      },
     ],
   },
   async rewrites() {

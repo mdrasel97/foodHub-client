@@ -3,6 +3,7 @@ import { getPopularMeals } from "@/actions/reviews";
 import { CategorySlider } from "@/components/modules/Home/CategorySlider";
 import HeroSection from "@/components/modules/Home/Hero";
 import { HowItWorks } from "@/components/modules/Home/HowItWorks";
+import Newsletter from "@/components/modules/Home/Newsletter";
 import { OrderTracking } from "@/components/modules/Home/OrderTracking";
 import { PopularMeals } from "@/components/modules/Home/PopularMeals";
 import WhyChooseUs from "@/components/modules/Home/WhyChooseUs";
@@ -50,6 +51,7 @@ export default async function Home() {
       <HowItWorks />
       <WhyChooseUs />
       <OrderTracking />
+      <Newsletter />
     </>
   );
 }

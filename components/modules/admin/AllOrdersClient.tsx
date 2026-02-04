@@ -136,11 +136,11 @@ export default function AllOrdersClient({ orders }: AllOrdersClientProps) {
   // Filter orders
   const filteredOrders = orders.filter((order) => {
     const matchesSearch =
-      order.orderNumber.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      order.provider.shopName
-        .toLowerCase()
-        .includes(searchQuery.toLowerCase()) ||
-      order.address.toLowerCase().includes(searchQuery.toLowerCase());
+      order?.orderNumber?.toLowerCase().includes(searchQuery?.toLowerCase()) ||
+      order?.provider?.shopName
+        ?.toLowerCase()
+        .includes(searchQuery?.toLowerCase()) ||
+      order?.address?.toLowerCase().includes(searchQuery?.toLowerCase());
 
     const matchesStatus =
       statusFilter === "all" || order.status === statusFilter;

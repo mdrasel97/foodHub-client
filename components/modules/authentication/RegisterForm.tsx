@@ -46,10 +46,11 @@ export function RegisterForm({
           toast.error(error.message, { id: toastId });
           return;
         }
-        toast.success("Account created! Please check your email.", {
+        toast.success("Account created! Please Login.", {
           id: toastId,
         });
-        router.push(`/verify-request?email=${encodeURIComponent(value.email)}`);
+        router.push(`/login`)
+        // router.push(`/verify-request?email=${encodeURIComponent(value.email)}`);
       } catch (error) {
         toast.error("An unexpected error occurred. Please try again.", {
           id: toastId,

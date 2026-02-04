@@ -58,10 +58,10 @@ export function VerifyEmailContent() {
         {/* Logo */}
         <div className="text-center">
           <Link href="/" className="inline-flex items-center gap-2">
-            <div className="w-12 h-12 rounded-xl bg-red-600 flex items-center justify-center">
-              <span className="text-white font-bold text-2xl">F</span>
+            <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center">
+              <span className="text-white font-bold text-2xl">K</span>
             </div>
-            <span className="text-2xl font-bold text-foreground">FoodHub</span>
+            <span className="text-2xl font-bold text-foreground">Khaddo Roshik</span>
           </Link>
         </div>
 
@@ -111,7 +111,7 @@ export function VerifyEmailContent() {
                   </h1>
                   <p className="text-muted-foreground text-sm max-w-sm">
                     Your account has been successfully verified. You can now
-                    access all features of FoodHub.
+                    access all features of Khaddo Roshik.
                   </p>
                 </div>
                 <div className="w-full bg-green-500/5 border border-green-500/20 rounded-lg p-4">
@@ -188,10 +188,10 @@ export function VerifyEmailContent() {
         <p className="text-center text-xs text-muted-foreground">
           Need help? Contact us at{" "}
           <a
-            href="mailto:support@foodhub.com"
+            href="mailto:support@khaddoroshik.com"
             className="text-primary hover:underline"
           >
-            support@foodhub.com
+            support@khaddoroshik.com
           </a>
         </p>
       </div>
