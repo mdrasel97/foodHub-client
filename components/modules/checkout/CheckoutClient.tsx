@@ -1,5 +1,6 @@
 "use client";
 
+import { createOrder } from "@/actions/orders";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -24,19 +25,18 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
-export function CheckoutClient() {
+export function CheckoutClient({ user }: { user: any }) {
   const [mounted, setMounted] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const router = useRouter();
   const items = useCartStore((state) => state.items);
   const clearCart = useCartStore((state) => state.clearCart);
-  const session = authClient.useSession();
-  const userData = session?.data?.user || null;
+
 
   const [formData, setFormData] = useState({
-    fullName: userData?.name || "",
+    fullName: user?.name || "",
     phone: "",
-    email: userData?.email || "",
+    email: user?.email || "",
     address: "",
     city: "",
     zipCode: "",
@@ -108,7 +108,7 @@ export function CheckoutClient() {
       };
 
       // Create order via API
-      const result = await orderService.createOrder(orderData);
+      const result = await createOrder(orderData);
 
       if (!result.status) {
         toast.error(result.message || "Failed to place order");

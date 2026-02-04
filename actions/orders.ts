@@ -37,3 +37,17 @@ export const getAllOrdersAdmin = async () => {
   const res = await orderService.getAllOrdersAdmin(cookieStore.toString());
   return res;
 };
+
+
+export const createOrder = async (orderData: {
+  providerId: string;
+  address: string;
+  items: {
+    mealId: string;
+    quantity: number;
+  }[];
+}) => {
+  const cookieStore = await cookies();
+  const res = await orderService.createOrder(orderData, cookieStore.toString());
+  return res;
+};
