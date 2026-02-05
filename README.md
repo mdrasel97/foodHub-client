@@ -1,6 +1,6 @@
-# 🍕 FoodHub - Multi-Vendor Food Delivery Platform
+# 🍕 Khaddo Roshik - Multi-Vendor Food Delivery Platform
 
-A modern, full-stack food delivery application built with Next.js 15, TypeScript, and Prisma. FoodHub connects customers with multiple food providers, offering a seamless ordering experience with real-time order tracking and comprehensive admin controls.
+A modern, full-stack food delivery application built with Next.js 15, TypeScript, and Prisma. Khaddo Roshik connects customers with multiple food providers, offering a seamless ordering experience with real-time order tracking and comprehensive admin controls.
 
 # Credentials for Testing
 
@@ -18,38 +18,38 @@ A modern, full-stack food delivery application built with Next.js 15, TypeScript
 
 # Live Demo
 
-- **Frontend:** [https://food-hub-client-eta.vercel.app](https://food-hub-client-eta.vercel.app)
-- **Backend API:** [https://assaignment-4-server.vercel.app](https://assaignment-4-server.vercel.app)
+- **Frontend:** [https://foodhub-client-silk.vercel.app/](https://github.com/mdrasel97/foodHub-client)
+- **Backend API:** [https://foodhub-server-flax.vercel.app/](https://github.com/mdrasel97/b6a4-foodHub-server)
 
 ## 🌟 Features
 
 ### For Customers
 
 - 🔍 **Browse & Search** - Discover meals from multiple providers with advanced filtering
-- 🛒 **Cart Management** - Add items, adjust quantities, and place orders
-- 📦 **Order Tracking** - Real-time order status updates (Pending → Accepted → Cooking → On the Way → Delivered)
-- ⭐ **Reviews & Ratings** - Rate and review meals after delivery
-- 👤 **Profile Management** - Manage personal information and preferences
-- 📱 **Responsive Design** - Seamless experience across all devices
+- **Cart Management** - Add items, adjust quantities, and place orders
+- **Order Tracking** - Real-time order status updates (Pending → Accepted → Cooking → On the Way → Delivered)
+- **Reviews & Ratings** - Rate and review meals after delivery
+- **Profile Management** - Manage personal information and preferences
+- **Responsive Design** - Seamless experience across all devices
 
 ### For Providers
 
-- 🏪 **Shop Management** - Create and customize your food business profile
-- 🍽️ **Meal Management** - Add, edit, and manage your meal offerings
-- 📊 **Dashboard Analytics** - Track orders, revenue, and performance metrics
-- 📋 **Order Management** - Accept, update, and fulfill customer orders
-- ⭐ **Review Monitoring** - View customer feedback and ratings
-- 💰 **Revenue Tracking** - Monitor earnings and order history
+- **Shop Management** - Create and customize your food business profile
+- **Meal Management** - Add, edit, and manage your meal offerings
+- **Dashboard Analytics** - Track orders, revenue, and performance metrics
+- **Order Management** - Accept, update, and fulfill customer orders
+- **Review Monitoring** - View customer feedback and ratings
+- **Revenue Tracking** - Monitor earnings and order history
 
 ### For Admins
 
-- 👥 **User Management** - Manage customers, providers, and admin accounts
-- 📦 **Order Oversight** - Monitor all platform orders
-- 🏷️ **Category Management** - Create and manage meal categories
-- 📊 **Platform Analytics** - Comprehensive dashboard with key metrics
-- 🔒 **Access Control** - Manage user roles and permissions
+- **User Management** - Manage customers, providers, and admin accounts
+- **Order Oversight** - Monitor all platform orders
+- **Category Management** - Create and manage meal categories
+- **Platform Analytics** - Comprehensive dashboard with key metrics
+- **Access Control** - Manage user roles and permissions
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Frontend
 
@@ -259,7 +259,7 @@ This project is licensed under the MIT License.
 
 ## 👨‍💻 Developer
 
-Developed with ❤️ by [Monir Hossain].
+Developed with ❤️ by [MD Rasel].
 
 ## 🙏 Acknowledgments
 
